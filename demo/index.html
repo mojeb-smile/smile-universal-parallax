@@ -66,12 +66,17 @@
 		</div>
 		<div class="parallax" data-parallax-image="img/bg4.jpg"></div>
 	</section>
-
+	<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"></script>
 	<script src="../dist/universal-parallax.min.js"></script>
 	<script src="js/demo.min.js"></script>
 	<script>
-		new universalParallax().init({
-			speed: 4
+		$(document).ready(function(){
+			$('.parallax').universalParallax({
+				speed: 4
+			});
 		});
 	</script>
 
