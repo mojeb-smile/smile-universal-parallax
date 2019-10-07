@@ -15,7 +15,7 @@ Easy parallax plugin using pure javascript. Lightweight (2kb) and cross browser 
 - Lightweight (2kb minified)
 
 ## :floppy_disk: Install
-`$ npm i universal-parallax -S`
+`$ npm i universal-parallax -S  or yarn add universal-parallax`
 
 ## :rocket: Setup
 
@@ -72,18 +72,51 @@ If `<section>` is your container, make the parallax element inside it
 :zap: You can also use `background-image` to define your image instead of using `data-parallax-image=""`
 
 #### #3
+Static HTML
+
 Include the script to your project
 
+Put the script at the bottom of your markup right after jQuery
+
 ```html
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <script src="node_modules/universal-parallax/dist/universal-parallax.min.js"></script>
 ```
+Load
 
+Webpack
+
+Add jQuery via the "webpack.ProvidePlugin" to your webpack configuration:
+
+```htmlconst webpack = require('webpack');
+
+//...
+plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
+],
+//...
+```
+
+Load the required stylesheet and JS:
+
+```html
+import 'universal-parallax/dist/universal-parallax.min.css';
+import 'universal-parallax';
+```
 #### #4
 Initialize the JS function
 
 ```html
 <script>
-	new universalParallax().init();
+$(document).ready(function(){
+  $('.parallax').universalParallax();
+});
 </script>
 ```
 
@@ -98,8 +131,10 @@ That's it! :checkered_flag:
 You can change the parallax speed; the higher the number, the slower the parallax effect
 
 ```js
-new universalParallax().init({
-	speed: 6.0
+$(document).ready(function(){
+     $('.parallax').universalParallax({
+        speed: 6.0,
+    });
 });
 ```
 

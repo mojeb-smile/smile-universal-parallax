@@ -1,11 +1,11 @@
 .parallax__container {
 	clip: rect(0, auto, auto, 0);
-	overflow: hidden;
 	height: 100%;
-	width: 100%;
+	left: 0;
+	overflow: hidden;
 	position: absolute;
 	top: 0;
-	left: 0;
+	width: 100%;
 	z-index: -100;
 
 	.parallax {
@@ -15,9 +15,11 @@
 		background-size: cover;
 		/* --------------------------- */
 		position: fixed;
-		width: 100%;
 		top: 0;
-		transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		-webkit-transform-style: preserve-3d;
 		transform-style: preserve-3d;
+		width: 100%;
 	}
 }
